@@ -1,12 +1,13 @@
 
-singleRound(manPlay(),computerPlay())
+// console.log(singleRound(manPlay(),computerPlay()))
+game();
 
 function computerPlay(){ 
 
 let computer_var = Math.floor((Math.random()*3)+1)
 
 if (computer_var === 1){
-return "rock"
+    return "rock"
 }
 if (computer_var === 2){
     return "papper"
@@ -23,34 +24,57 @@ function manPlay() {
 }
 
 function singleRound(manPlay, computerPlay) {
-
+var result;
 if (manPlay === computerPlay){
-    console.log(`you have chosen ${manPlay} and its a draw`)
+    result = `you have chosen ${manPlay} and its a draw`
 }
 
 if (manPlay === "rock" && computerPlay === "papper"){
-    console.log(`you lose! ${computerPlay} beat ${manPlay}`)
+    result = `you lose ${computerPlay} beat ${manPlay}`
 }
 
 if (manPlay === "rock" && computerPlay === "scissors"){
-    console.log(`you win! ${manPlay} beat ${computerPlay}`)
+    result = `you win ${manPlay} beat ${computerPlay}`
 }
 
 if (manPlay === "papper" && computerPlay === "rock"){
-    console.log(`you win! ${manPlay} beat ${computerPlay}`)
+    result = `you win ${manPlay} beat ${computerPlay}`
 }
 
 if (manPlay === "papper" && computerPlay === "scissors"){
-    console.log(`you lose! ${computerPlay} beat ${manPlay}`)
+    result = `you lose ${computerPlay} beat ${manPlay}`
 }
 
 if (manPlay === "scissors" && computerPlay === "rock"){
-    console.log(`you lose! ${computerPlay} beat ${manPlay}`)
+    result = `you lose ${computerPlay} beat ${manPlay}`
 
 }
 
 if (manPlay === "scissors" && computerPlay === "papper"){
-    console.log(`you win! ${manPlay} beat ${computerPlay}`)
+    result = `you win ${manPlay} beat ${computerPlay}`
 }
 
+return result
+
+}
+
+function game(){
+    let manWins = 0
+    let computerWins = 0
+    for (let index = 0; index < 5; index++) {
+        result1 = singleRound(manPlay(),computerPlay())
+
+        if (result1.includes("win")){
+            manWins = manWins + 1
+        }else{
+         computerWins = computerWins + 1
+        }
+        
+    }
+    
+     if (manWins > computerWins) {
+         console.log("You Win")
+     }else {
+         console.log("You Lose")
+    }
 }
