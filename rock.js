@@ -1,7 +1,6 @@
 
 // console.log(singleRound(manPlay(),computerPlay()))
-game();
-
+// game();
 function computerPlay(){ 
 
 let computer_var = Math.floor((Math.random()*3)+1)
