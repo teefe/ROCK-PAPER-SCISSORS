@@ -1,6 +1,6 @@
 
 // console.log(singleRound(manPlay(),computerPlay()))
-game();
+gme();
 
 function computerPlay(){ 
 
