@@ -1,0 +1,125 @@
+body{
+
+    background-color:  #222831;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+}
+header > h1{
+    margin: 0px;
+    color: #fac650;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+}
+.game-show{
+    color:beige;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.results-1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+}
+.player{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.computer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.man-q-mark {
+    margin: 0px;
+    padding: 0px;
+    font-size:  100px;
+}
+h4{
+    font-size: 20px;
+
+}
+button{
+    background-color:   #292929;
+    border-radius: 15px;
+    height: 150px;
+    width: 150px;
+    border: none;
+    font-size: 70px;
+}
+ .choice-btn{
+    display: flex;
+    gap: 20px;
+} 
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111720;
+    height: 150px;
+    
+}
+button:hover{
+    background-color: bisque;
+    font-size: 100px;
+    transition-duration: 200ms;
+    height:200px;
+    width: 200px;
+}
+.comp-q-mark{
+    margin: 0px;
+    padding: 0px;
+    font-size:  100px;
+}
+.results1{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+.second-result{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+.man-result{
+    margin: 0px;
+    padding: 0px;
+    display: inline;
+}
+.comp-result{
+    margin: 0px;
+    padding: 0px;
+    display: inline;   
+}
+.final-result{
+    position: absolute;
+    left: 530px;
+    top: 200px;
+    height: 200px;
+    width: 200px;
+    background-color:dimgrey;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    
+}
+.final-btn{
+    height: 50px;
+    width: 150px;
+    font-size: larger; 
+}
+.final-btn:hover{
+    height: 50px;
+    width: 150px;
+    font-size: larger; 
+}

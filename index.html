@@ -5,8 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>ROCK PAPPER SCISSORS</h1>
+    </header>
+    <div class="game-show"> 
+        <div class="results-display">
+            <h1 class="results1">Choose your weapon</h1>
+            <h3 class="second-result">First to score 5 points wins the game</h3>
+            <div class="results-1"> 
+            <div class="player"> 
+                <h1 class="man-q-mark">?</h1>
+                <h4>Player: <h4 class="man-result" >0</h4> </h4>
+            </div>
+            <div class="computer"> 
+                <h1 class="comp-q-mark">?</h1>
+                <h4>Computer: <h4 class="comp-result">0</h4> </h4>
+            </div>
+        </div>
+        </div>
+        <div class="choice-btn"> 
+            <button id="btnRock">
+                ✊
+            </button>
+            <button id="btnPapper">
+                ✋
+            </button>
+            <button id="btnScissors">
+                ✌️
+            </button>
+        </div>
+    </div>
+    <div class="final-result"> 
+        <h1 class="final-winner"> YOU </h1>
+        <button class="final-btn">
+            play again
+        </button>
+    </div>
     <script src="rock.js"></script>
 </body>
 </html>
