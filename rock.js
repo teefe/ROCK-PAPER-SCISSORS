@@ -136,7 +136,7 @@ function winner(){
         finalResult.textContent = 'YOU WIN';
         resultPop();
     }else if (winTotal >= cumulative && computerWins > manWins ) {
-        finalResult.textContent = 'YOU LOSE';
+        finalResult.textContent = 'YOU LOST';
         resultPop();
     }
 }
