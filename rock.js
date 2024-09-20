@@ -15,8 +15,8 @@ const compResultCount = document.querySelector('.comp-result');
 const finalResult =  document.querySelector('.final-winner')
 const finalResult2 =  document.querySelector('.final-result')
 
-let manWins = 0;
-let computerWins = 0;
+let Player1Wins = 0;
+let Player2Wins = 0;
 
 btnWork();
 
@@ -42,11 +42,11 @@ btnScissors.addEventListener("click",()=>{
 
 btnAgain.addEventListener("click",()=>{
     finalResult2.style.opacity = 0;
-    manWins = 0;
-    computerWins = 0;
+    Player1Wins = 0;
+    Player2Wins = 0;
     winTotal = 0;
-    resultCount.textContent = manWins;
-    compResultCount.textContent = computerWins;
+    resultCount.textContent = Player1Wins;
+    compResultCount.textContent = Player2Wins;
     resultAppend('First to score 5 points wins the game','Choose your weapon')
     playerChoice.textContent = '?';
     computerChoice.textContent = '?';
@@ -94,48 +94,48 @@ function singleRound(manPlay, computerPlay) {
     if (manPlay === "rock" && computerPlay === "papper"){
         result = `${computerPlay} beats ${manPlay}`
         newResult = resultAppend(result,"You lost!");
-        computerWins = computerWins + 1
+        Player2Wins = Player2Wins + 1
     }
 
     if (manPlay === "rock" && computerPlay === "scissors"){
         result = `${manPlay} beats ${computerPlay}`
         newResult = resultAppend(result,"You Won!");
-        manWins = manWins + 1
+        Player1Wins = Player1Wins + 1
     }
 
     if (manPlay === "papper" && computerPlay === "rock"){
         result = `${manPlay} beats ${computerPlay}`
         newResult = resultAppend(result,"You Won!");
-        manWins = manWins + 1
+        Player1Wins = Player1Wins + 1
     }
 
     if (manPlay === "papper" && computerPlay === "scissors"){
         result = `${computerPlay} beats ${manPlay}`
         newResult = resultAppend(result,"You lost!");
-        computerWins = computerWins + 1
+        Player2Wins = Player2Wins + 1
     }
 
     if (manPlay === "scissors" && computerPlay === "rock"){
         result = `${computerPlay} beats ${manPlay}`;
         newResult = resultAppend(result, "You lost!");
-        computerWins = computerWins + 1
+        Player2Wins = Player2Wins + 1
     }
 
     if (manPlay === "scissors" && computerPlay === "papper"){
         result = `${manPlay} beats ${computerPlay}`
        newResult = resultAppend(result,"You Won!");
-       manWins = manWins + 1
+       Player1Wins = Player1Wins + 1
     }
 
         return newResult
 }
 function winner(){
-    let winTotal = manWins+computerWins;
+    let winTotal = Player1Wins+Player2Wins;
     let cumulative = 5
-    if (winTotal >= cumulative && manWins > computerWins) {
+    if (winTotal >= cumulative && Player1Wins > Player2Wins) {
         finalResult.textContent = 'YOU WIN';
         resultPop();
-    }else if (winTotal >= cumulative && computerWins > manWins ) {
+    }else if (winTotal >= cumulative && Player2Wins > Player1Wins ) {
         finalResult.textContent = 'YOU LOST';
         resultPop();
     }
@@ -148,10 +148,10 @@ function resultPop(){
 function theGame(choice) {
     result1 = singleRound(manPlay(choice),computerPlay());
     if (result1.includes('Won')) {
-        resultCount.textContent = manWins;
+        resultCount.textContent = Player1Wins;
     }
     if (result1.includes('lost')) {
-        compResultCount.textContent = computerWins;   
+        compResultCount.textContent = Player2Wins;   
     }
     winner();
 }
