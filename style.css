@@ -6,6 +6,15 @@ body{
     margin: 0px;
     padding: 0px;
 }
+.body{
+
+    background-color:  #222831;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+
+}
 header > h1{
     margin: 0px;
     color: #fac650;
@@ -100,10 +109,10 @@ button:hover{
 }
 .final-result{
     position: absolute;
-    left: 530px;
-    top: 200px;
-    height: 200px;
-    width: 200px;
+    left: 593px;
+    top: 29%;
+    height: 300px;
+    width: 275px;
     background-color:dimgrey;
     border-radius: 30px;
     display: flex;
