@@ -77,52 +77,74 @@ function resultAppend(progress1,progress2){
     return progress2
 }
 // Players choice input.
-function manPlay(choice) {
+function getPlayersChoice(choice) {
     let playerChoice = choice;    
     return playerChoice
 }
 
 
-function singleRound(manPlay, computerPlay) {
+function singleRound(getPlayersChoice
+, computerPlay) {
     var result;
     var newResult;
-    if (manPlay === computerPlay){
-        result = `${manPlay} ties with ${computerPlay}`
+    if (getPlayersChoice
+     === computerPlay){
+        result = `${getPlayersChoice
+        
+        } ties with ${computerPlay}`
         newResult = resultAppend(result,"its a tie!");
     }
 
-    if (manPlay === "rock" && computerPlay === "papper"){
-        result = `${computerPlay} beats ${manPlay}`
+    if (getPlayersChoice
+     === "rock" && computerPlay === "papper"){
+        result = `${computerPlay} beats ${getPlayersChoice
+        
+        }`
         newResult = resultAppend(result,"You lost!");
         Player2Wins = Player2Wins + 1
     }
 
-    if (manPlay === "rock" && computerPlay === "scissors"){
-        result = `${manPlay} beats ${computerPlay}`
+    if (getPlayersChoice
+     === "rock" && computerPlay === "scissors"){
+        result = `${getPlayersChoice
+        
+        } beats ${computerPlay}`
         newResult = resultAppend(result,"You Won!");
         Player1Wins = Player1Wins + 1
     }
 
-    if (manPlay === "papper" && computerPlay === "rock"){
-        result = `${manPlay} beats ${computerPlay}`
+    if (getPlayersChoice
+     === "papper" && computerPlay === "rock"){
+        result = `${getPlayersChoice
+        
+        } beats ${computerPlay}`
         newResult = resultAppend(result,"You Won!");
         Player1Wins = Player1Wins + 1
     }
 
-    if (manPlay === "papper" && computerPlay === "scissors"){
-        result = `${computerPlay} beats ${manPlay}`
+    if (getPlayersChoice
+     === "papper" && computerPlay === "scissors"){
+        result = `${computerPlay} beats ${getPlayersChoice
+        
+        }`
         newResult = resultAppend(result,"You lost!");
         Player2Wins = Player2Wins + 1
     }
 
-    if (manPlay === "scissors" && computerPlay === "rock"){
-        result = `${computerPlay} beats ${manPlay}`;
+    if (getPlayersChoice
+     === "scissors" && computerPlay === "rock"){
+        result = `${computerPlay} beats ${getPlayersChoice
+        
+        }`;
         newResult = resultAppend(result, "You lost!");
         Player2Wins = Player2Wins + 1
     }
 
-    if (manPlay === "scissors" && computerPlay === "papper"){
-        result = `${manPlay} beats ${computerPlay}`
+    if (getPlayersChoice
+     === "scissors" && computerPlay === "papper"){
+        result = `${getPlayersChoice
+        
+        } beats ${computerPlay}`
        newResult = resultAppend(result,"You Won!");
        Player1Wins = Player1Wins + 1
     }
@@ -146,7 +168,8 @@ function resultPop(){
 }
 
 function theGame(choice) {
-    result1 = singleRound(manPlay(choice),computerPlay());
+    result1 = singleRound(getPlayersChoice
+    (choice),computerPlay());
     if (result1.includes('Won')) {
         resultCount.textContent = Player1Wins;
     }
