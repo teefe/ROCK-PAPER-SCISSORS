@@ -12,8 +12,8 @@ const secondResult = document.querySelector('.second-result');
 const resultCount = document.querySelector('.man-result');
 const compResultCount = document.querySelector('.comp-result');
 
-const finalResult =  document.querySelector('.final-setWinner')
-const finalResult2 =  document.querySelector('.final-result')
+const finalResult =  document.querySelector('.final-setWinner');
+const finalResult2 =  document.querySelector('.final-result');
 
 let Player1Wins = 0;
 let Player2Wins = 0;
@@ -54,6 +54,7 @@ btnAgain.addEventListener("click",()=>{
 
 function getComputerChoice(){ 
     let computer_var = Math.floor((Math.random()*3)+1) 
+
     if (computer_var === 1){
         let computerContent = btnRock.textContent;
         computerChoice.textContent = computerContent;
@@ -83,78 +84,69 @@ function getHumanChoice(choice) {
 }
 
 
-function setGameResults(getHumanChoice
-, getComputerChoice) {
+function setGameResults(getHumanChoice, getComputerChoice){
+
     var result;
     var newResult;
-    if (getHumanChoice
-     === getComputerChoice){
-        result = `${getHumanChoice
-        
-        } ties with ${getComputerChoice}`
-        newResult = showGameResults(result,"its a tie!");
-    }
-    if (getHumanChoice
-     === "rock" && getComputerChoice === "papper"){
-        result = `${getComputerChoice} beats ${getHumanChoice
-        
-        }`
-        newResult = showGameResults(result,"You lost!");
-        Player2Wins = Player2Wins + 1
-    }
-    if (getHumanChoice
-     === "rock" && getComputerChoice === "scissors"){
-        result = `${getHumanChoice
-        
-        } beats ${getComputerChoice}`
-        newResult = showGameResults(result,"You Won!");
-        Player1Wins = Player1Wins + 1
-    }
-    if (getHumanChoice
-     === "papper" && getComputerChoice === "rock"){
-        result = `${getHumanChoice
-        
-        } beats ${getComputerChoice}`
-        newResult = showGameResults(result,"You Won!");
-        Player1Wins = Player1Wins + 1
-    }
-    if (getHumanChoice
-     === "papper" && getComputerChoice === "scissors"){
-        result = `${getComputerChoice} beats ${getHumanChoice
-        
-        }`
-        newResult = showGameResults(result,"You lost!");
-        Player2Wins = Player2Wins + 1
-    }
-    if (getHumanChoice
-     === "scissors" && getComputerChoice === "rock"){
-        result = `${getComputerChoice} beats ${getHumanChoice
-        
-        }`;
-        newResult = showGameResults(result, "You lost!");
-        Player2Wins = Player2Wins + 1
-    }
-    if (getHumanChoice
-     === "scissors" && getComputerChoice === "papper"){
-        result = `${getHumanChoice
-        
-        } beats ${getComputerChoice}`
-       newResult = showGameResults(result,"You Won!");
-       Player1Wins = Player1Wins + 1
-    }
+
+    if (getHumanChoice === getComputerChoice)
+        {
+            result = `${getHumanChoice} ties with ${getComputerChoice}`
+            newResult = showGameResults(result,"its a tie!");
+        }
+    if (getHumanChoice === "rock" && getComputerChoice === "papper")
+        {
+            result = `${getComputerChoice} beats ${getHumanChoice}`
+            newResult = showGameResults(result,"You lost!");
+            Player2Wins = Player2Wins + 1
+        }
+    if (getHumanChoice === "rock" && getComputerChoice === "scissors")
+        {
+            result = `${getHumanChoice} beats ${getComputerChoice}`
+            newResult = showGameResults(result,"You Won!");
+            Player1Wins = Player1Wins + 1
+        }
+    if (getHumanChoice === "papper" && getComputerChoice === "rock")
+        {
+            result = `${getHumanChoice} beats ${getComputerChoice}`
+            newResult = showGameResults(result,"You Won!");
+            Player1Wins = Player1Wins + 1
+        }
+    if (getHumanChoice === "papper" && getComputerChoice === "scissors")
+        {
+            result = `${getComputerChoice} beats ${getHumanChoice}`
+            newResult = showGameResults(result,"You lost!");
+            Player2Wins = Player2Wins + 1
+        }
+    if (getHumanChoice === "scissors" && getComputerChoice === "rock")
+        {
+            result = `${getComputerChoice} beats ${getHumanChoice}`;
+            newResult = showGameResults(result, "You lost!");
+            Player2Wins = Player2Wins + 1
+        }
+    if (getHumanChoice === "scissors" && getComputerChoice === "papper")
+        {
+            result = `${getHumanChoice} beats ${getComputerChoice}`
+            newResult = showGameResults(result,"You Won!");
+            Player1Wins = Player1Wins + 1
+        }
 
         return newResult
 }
 function setWinner(){
+
     let winTotal = Player1Wins+Player2Wins;
     let cumulative = 5
-    if (winTotal >= cumulative && Player1Wins > Player2Wins) {
-        finalResult.textContent = 'YOU WIN';
-        resultPop();
-    }else if (winTotal >= cumulative && Player2Wins > Player1Wins ) {
-        finalResult.textContent = 'YOU LOST';
-        resultPop();
-    }
+
+    if (winTotal >= cumulative && Player1Wins > Player2Wins)
+        {
+            finalResult.textContent = 'YOU WIN';
+            resultPop();
+        }else if (winTotal >= cumulative && Player2Wins > Player1Wins ) 
+        {
+            finalResult.textContent = 'YOU LOST';
+            resultPop();
+        }
 }
 
 function resultPop(){
@@ -162,8 +154,7 @@ function resultPop(){
 }
 
 function theGame(choice) {
-    result1 = setGameResults(getHumanChoice
-    (choice),getComputerChoice());
+    result1 = setGameResults(getHumanChoice(choice),getComputerChoice());
     if (result1.includes('Won')) {
         resultCount.textContent = Player1Wins;
     }
