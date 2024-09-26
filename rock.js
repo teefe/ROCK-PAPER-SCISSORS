@@ -22,19 +22,19 @@ getPlayerChoices();
 
 function getPlayerChoices(){
 btnRock.addEventListener("click",()=>{
-    PlayGame("rock");
+    theGame("rock");
     let playerContent = btnRock.textContent;
     playerChoice.textContent = playerContent;
 });
 
 btnPapper.addEventListener("click",()=>{
-    PlayGame("papper");
+    theGame("papper");
     let playerContent = btnPapper.textContent;
     playerChoice.textContent = playerContent;
 });
 
 btnScissors.addEventListener("click",()=>{
-    PlayGame("scissors");
+    theGame("scissors");
     let playerContent = btnScissors.textContent;
     playerChoice.textContent = playerContent;
 });
@@ -83,7 +83,7 @@ function getHumanChoice(choice) {
 }
 
 
-function playRound(getHumanChoice
+function setGameResults(getHumanChoice
 , getComputerChoice) {
     var result;
     var newResult;
@@ -161,8 +161,8 @@ function resultPop(){
     finalResult2.style.opacity = 1;
 }
 
-function PlayGame(choice) {
-    result1 = playRound(getHumanChoice
+function theGame(choice) {
+    result1 = setGameResults(getHumanChoice
     (choice),getComputerChoice());
     if (result1.includes('Won')) {
         resultCount.textContent = Player1Wins;
