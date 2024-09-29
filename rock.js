@@ -15,7 +15,7 @@ const compResultCount = document.querySelector('.comp-result');
 const finalResult =  document.querySelector('.final-setWinner');
 const finalResult2 =  document.querySelector('.final-result');
 
-let Player1Wins = 0;
+let Player1Wins = 0; 
 let Player2Wins = 0;
 
 getPlayerChoices();
