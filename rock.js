@@ -12,29 +12,29 @@ const secondResult = document.querySelector('.second-result');
 const resultCount = document.querySelector('.man-result');
 const compResultCount = document.querySelector('.comp-result');
 
-const finalResult =  document.querySelector('.final-setWinner');
+const finalResult =  document.querySelector('.final-winner');
 const finalResult2 =  document.querySelector('.final-result');
 
-let Player1Wins = 0; 
-let Player2Wins = 0;
+let humanScore = 0;
+let computerScore = 0;
 
-getPlayerChoices();
+getHumanChoices();
 
-function getPlayerChoices(){
+function getHumanChoices(){
 btnRock.addEventListener("click",()=>{
-    theGame("rock");
+    playGame("rock");
     let playerContent = btnRock.textContent;
     playerChoice.textContent = playerContent;
 });
 
 btnPapper.addEventListener("click",()=>{
-    theGame("papper");
+    playGame("papper");
     let playerContent = btnPapper.textContent;
     playerChoice.textContent = playerContent;
 });
 
 btnScissors.addEventListener("click",()=>{
-    theGame("scissors");
+    playGame("scissors");
     let playerContent = btnScissors.textContent;
     playerChoice.textContent = playerContent;
 });
@@ -42,11 +42,11 @@ btnScissors.addEventListener("click",()=>{
 
 btnAgain.addEventListener("click",()=>{
     finalResult2.style.opacity = 0;
-    Player1Wins = 0;
-    Player2Wins = 0;
+    humanScore = 0;
+    computerScore = 0;
     winTotal = 0;
-    resultCount.textContent = Player1Wins;
-    compResultCount.textContent = Player2Wins;
+    resultCount.textContent = humanScore;
+    compResultCount.textContent = computerScore;
     showGameResults('First to score 5 points wins the game','Choose your weapon')
     playerChoice.textContent = '?';
     computerChoice.textContent = '?';
@@ -78,71 +78,72 @@ function showGameResults(progress1,progress2){
     return progress2
 }
 // Players choice input.
-function getHumanChoice(choice) {
+function setHumanChoice(choice) {
     let playerChoice = choice;    
     return playerChoice
 }
 
 
-function setGameResults(getHumanChoice, getComputerChoice){
+function playRound(setHumanChoice, getComputerChoice){
 
     var result;
     var newResult;
 
-    if (getHumanChoice === getComputerChoice)
+    if (setHumanChoice === getComputerChoice)
         {
-            result = `${getHumanChoice} ties with ${getComputerChoice}`
+            result = `${setHumanChoice} ties with ${getComputerChoice}`
             newResult = showGameResults(result,"its a tie!");
         }
-    if (getHumanChoice === "rock" && getComputerChoice === "papper")
+    if (setHumanChoice === "rock" && getComputerChoice === "papper")
         {
-            result = `${getComputerChoice} beats ${getHumanChoice}`
+            result = `${getComputerChoice} beats ${setHumanChoice}`
             newResult = showGameResults(result,"You lost!");
-            Player2Wins = Player2Wins + 1
+            computerScore = computerScore + 1
         }
-    if (getHumanChoice === "rock" && getComputerChoice === "scissors")
+    if (setHumanChoice === "rock" && getComputerChoice === "scissors")
         {
-            result = `${getHumanChoice} beats ${getComputerChoice}`
+            result = `${setHumanChoice} beats ${getComputerChoice}`
             newResult = showGameResults(result,"You Won!");
-            Player1Wins = Player1Wins + 1
+            humanScore = humanScore + 1
         }
-    if (getHumanChoice === "papper" && getComputerChoice === "rock")
+    if (setHumanChoice === "papper" && getComputerChoice === "rock")
         {
-            result = `${getHumanChoice} beats ${getComputerChoice}`
+            result = `${setHumanChoice} beats ${getComputerChoice}`
             newResult = showGameResults(result,"You Won!");
-            Player1Wins = Player1Wins + 1
+            humanScore = humanScore + 1
         }
-    if (getHumanChoice === "papper" && getComputerChoice === "scissors")
+    if (setHumanChoice === "papper" && getComputerChoice === "scissors")
         {
-            result = `${getComputerChoice} beats ${getHumanChoice}`
+            result = `${getComputerChoice} beats ${setHumanChoice}`
             newResult = showGameResults(result,"You lost!");
-            Player2Wins = Player2Wins + 1
+            computerScore = computerScore + 1
         }
-    if (getHumanChoice === "scissors" && getComputerChoice === "rock")
+    if (setHumanChoice === "scissors" && getComputerChoice === "rock")
         {
-            result = `${getComputerChoice} beats ${getHumanChoice}`;
+            result = `${getComputerChoice} beats ${setHumanChoice}`;
             newResult = showGameResults(result, "You lost!");
-            Player2Wins = Player2Wins + 1
+            computerScore = computerScore + 1
         }
-    if (getHumanChoice === "scissors" && getComputerChoice === "papper")
+    if (setHumanChoice === "scissors" && getComputerChoice === "papper")
         {
-            result = `${getHumanChoice} beats ${getComputerChoice}`
+            result = `${setHumanChoice} beats ${getComputerChoice}`
             newResult = showGameResults(result,"You Won!");
-            Player1Wins = Player1Wins + 1
+            humanScore = humanScore + 1
         }
 
+        console.log(newResult);
         return newResult
 }
 function setWinner(){
 
-    let winTotal = Player1Wins+Player2Wins;
+    let winTotal = humanScore+computerScore;
     let cumulative = 5
 
-    if (winTotal >= cumulative && Player1Wins > Player2Wins)
+    if (winTotal >= cumulative && humanScore > computerScore)
         {
             finalResult.textContent = 'YOU WIN';
             resultPop();
-        }else if (winTotal >= cumulative && Player2Wins > Player1Wins ) 
+        }else if (winTotal >= cumulative && computerScore > humanScore ) 
         {
             finalResult.textContent = 'YOU LOST';
             resultPop();
@@ -153,13 +154,13 @@ function resultPop(){
     finalResult2.style.opacity = 1;
 }
 
-function theGame(choice) {
-    result1 = setGameResults(getHumanChoice(choice),getComputerChoice());
+function playGame(choice) {
+    result1 = playRound(setHumanChoice(choice),getComputerChoice());
     if (result1.includes('Won')) {
-        resultCount.textContent = Player1Wins;
+        resultCount.textContent = humanScore;
     }
     if (result1.includes('lost')) {
-        compResultCount.textContent = Player2Wins;   
+        compResultCount.textContent = computerScore;   
     }
     setWinner();
 }
